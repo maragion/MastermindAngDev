@@ -20,7 +20,7 @@ export class AppComponent {
   gameField: boolean = false;
   repeatButton: boolean = false;
   checkButton: boolean = true
-  helpButton: boolean = false;
+  helpButton: boolean = true;
   userNumber: string
 
   constructor() {
@@ -102,7 +102,7 @@ export class AppComponent {
 
   checkWin() {
     if (this.result.bulls === 4) {
-      this.message = {message: `Вы Победили!!! Количество попыток: ${this.guess}`, type: "win"};
+      this.message = {message: `Вы Победили! Количество попыток: ${this.guess}`, type: "win"};
       this.repeatButton = true;
       this.checkButton = false;
     }
@@ -158,3 +158,4 @@ export class AppComponent {
     this.messageLog.nativeElement.scrollTop = this.messageLog.nativeElement.scrollHeight;
   }
 }
+

@@ -2,10 +2,6 @@
   font-family: 'Victor Mono';
   src: url("../assets/fonts/VictorMono.ttf") format("ttf");
 }
-* {
-  margin: 0;
-  padding: 0;
-}
 
 .container {
   display: flex;
@@ -14,162 +10,118 @@
   width: 100%;
   justify-content: center;
   background: lightblue;
-
 }
 
 .game {
-  font-family: 'Victor Mono', monospace;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 700px;
+  width: 25rem;
+  height: 43.75rem;
   background: white;
-  border-radius: 20px;
-  padding: 20px;
+  font-family: 'Victor Mono', monospace;
+  padding: 1.25rem;
   align-items: center;
-  box-sizing: border-box;
-  position: relative;
 }
 
 @media (max-width: 539px) {
   .game {
     font-family: 'Victor Mono', monospace;
-    display: flex;
-    flex-direction: column;
     width: 100%;
     height: 100svh;
     background: white;
-    border-radius: 0;
-    padding: 20px;
+    padding: 1.25rem;
     align-items: center;
-    box-sizing: border-box;
-    position: relative;
-
   }
 }
 
-.game-rules {
-
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.game-rules p {
-  padding-top: 5rem;
-  font-size: 18px;
-}
-
-ul {
-  padding: 30px;
-  font-size: 16px;
-}
-
-li {
-  margin-top: 5px;
-}
-
-.button {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  background: #3f3f9a;
-  color: white;
-  font-size: 20px;
-  box-sizing: border-box;
-  font-family: 'Victor Mono', monospace;
-}
-
-.help-button {
-  height: 32px;
-  width: 32px;
-  color: #1d9a9a;
-  font-size: 20px;
-  border: 1px solid #1d9a9a;
-  border-radius: 10px;
-  grid-column: 6;
-  justify-self: end;
-}
-
-.game-info {
+.game-header {
   width: 100%;
   display: grid;
-  align-items: center;
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
+  align-items: center;
 }
 
-.game-info h1 {
+.game-title {
+  font-family: 'Victor Mono', monospace;
+  font-size: 2.25rem;
+  font-weight: bold;
   grid-column: 2 / 6;
 }
 
+.help-button {
+  grid-column: 6;
+}
+
 .game-field {
-  margin-top: 35px;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   justify-content: space-between;
-  padding: 10px;
+  padding: 4rem .625rem .625rem;
   overflow: hidden;
 }
 
+.game-field p {
+  font-size: 1.125rem;
+}
+
+ul {
+  padding: .625rem 1.875rem;
+  font-size: 1rem;
+  margin-top: -7rem;
+}
+
+li {
+  margin-top: .313rem;
+}
+
+button {
+  font-size: 1.25rem;
+  font-family: 'Victor Mono', monospace;
+}
+
 .counter {
-  font-size: 32px;
+  font-size: 2rem;
   align-self: center;
 }
 
 .game-log {
   width: 100%;
-  height: 45%;
-  border: 1px solid black;
-  border-radius: 10px;
+  height: 50%;
+  border-radius: .25rem;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 10px;
-  background: #bbdcee;
-  font-size: 14px;
+  padding: 1rem;
+  background: #b2c7e2;
+  font-size: .875rem;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-.game-input {
-  align-self: center;
-  height: 40px;
-  width: 96%;
-  border-radius: 10px;
-  border: 1px solid black;
-  padding: 5px;
+input {
   text-align: center;
-  outline: none;
-  font-family: 'Victor Mono', monospace;
-  font-size: 20px;
+  font-size: 1.25rem;
+}
 
+.user-input {
+  margin-bottom: -1.5rem;
+  //  this margin is used to equalize space between elements
 }
 
 .game-message {
-  margin-top: 5px;
-  padding: 5px;
-  font-size: 16px;
+  margin-top: .313rem;
+  padding: .625rem;
+  font-size: 1rem;
+  background-color: #424242;
+  color: white;
+  border-radius: .25rem;
 }
 
 .game-error-message {
-  color: red;
+  color: white;
+  background-color: #f44336;
 }
 
 .game-win-message {
-  color: #02a402;
-}
-
-/*Disable arrows in input type="number"*/
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+  color: black;
+  background-color: #69f0ae;
 }

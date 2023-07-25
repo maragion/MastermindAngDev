@@ -1,43 +1,50 @@
-
 <div class="container">
-  <div class="game">
-
-    <div class="game-info">
-      <h1>Mastermind</h1>
-      <button class="help-button" id="help-button" *ngIf="helpButton" (click)="help()">
-        ?
+  <mat-card class="game">
+    <div class="game-header">
+      <mat-card-title class="game-title">
+        Mastermind
+      </mat-card-title>
+      <button mat-icon-button color="accent" class="help-button" (click)="help()">
+        <mat-icon>help</mat-icon>
       </button>
     </div>
 
-    <div class="game-rules" id="game-rules" *ngIf="rules">
-      <div class="rules">
-        <p>В этой игре вам нужно угадать число, загаданное компьютером.</p>
-        <ul>
-          <li>Число состоит из четырёх цифр в формате "1234".</li>
-          <li>Цифры не повторяются.</li>
-          <li>Загаданное число не начинается с нуля.</li>
-          <li>"Корова" - цифра есть в числе, но не на своём месте.</li>
-          <li>"Бык" - цифра есть в числе и стоит на своём месте.</li>
-        </ul>
-      </div>
-      <button class="button start-button" id="start-button" (click)="startGame()">Поехали!</button>
-    </div>
-    <div class="game-field" id="game-field" *ngIf="gameField">
+    <mat-card-content class="game-field" *ngIf="rules">
+      <p>В этой игре вам нужно угадать число, загаданное компьютером.</p>
+      <ul>
+        <li>Число состоит из четырёх цифр в формате "1234".</li>
+        <li>Цифры не повторяются.</li>
+        <li>Загаданное число не начинается с нуля.</li>
+        <li>"Корова" - цифра есть в числе, но не на своём месте.</li>
+        <li>"Бык" - цифра есть в числе и стоит на своём месте.</li>
+      </ul>
+      <button class="the-dense-zone" style="height: 3.5rem" mat-raised-button color="primary" (click)="startGame()">
+        Поехали!
+      </button>
+    </mat-card-content>
+
+    <mat-card-content class="game-field" *ngIf="gameField">
       <div class="counter" id="counter" #guessLog>{{guess}}</div>
-      <div class="game-log" id="game-log" #messageLog >
+      <div class="game-log" id="game-log" #messageLog>
         <div *ngFor="let message of messages" class="game-message" [ngClass]="{'game-error-message':
         message.type==='error', 'game-win-message' : message.type === 'win'}">
           {{message.message}}
         </div>
       </div>
-      <input class="game-input"  type="text" inputmode="numeric" pattern="[0-9]*" [(ngModel)]="userNumber" placeholder="Введите число" />
+      <mat-form-field class="user-input">
+        <input matInput type="text" inputmode="numeric" pattern="[0-9]*" style="font-family: 'Victor Mono', monospace"
+               [(ngModel)]="userNumber"
+               placeholder="Введите число"/>
+      </mat-form-field>
 
-      <button class="button check-button" id="check-button" (click)="step();" *ngIf="checkButton">Проверить</button>
-      <button class="button check-button" id="repeat-button" *ngIf="repeatButton" (click)="playAgain()">Сыграть ещё</button>
+      <button mat-raised-button color="primary" style="height: 3.5rem" (click)="step();" *ngIf="checkButton">Проверить
+      </button>
+      <button mat-raised-button color="primary" style="height: 3.5rem" *ngIf="repeatButton" (click)="playAgain()">Сыграть
+        ещё
+      </button>
+    </mat-card-content>
 
-    </div>
-
-  </div>
+  </mat-card>
 </div>
 
 <router-outlet></router-outlet>
